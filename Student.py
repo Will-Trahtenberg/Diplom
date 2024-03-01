@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QTabWidget, QMessageBox, QDialog, QLabel, QTextEdit, QPushButton, QLineEdit
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout
 from PyQt5.QtSql import QSqlQueryModel
-from PyQt5.QtSql import QSqlQueryModel
 from PyQt5.QtCore import pyqtSlot
 
 class Model(QSqlQueryModel):
@@ -24,7 +23,8 @@ class View(QTabWidget):
 
     @pyqtSlot()
     def add(self):
-        QMessageBox.information(self, 'Студент', 'Добавить')
+        dia = Dialog(parent=self)
+        dia.exec()
 
     @pyqtSlot()
     def update(self):
@@ -39,5 +39,16 @@ class Dialog(QDialog):
         super().__init__(parent)
 
         fio_lbl = QLabel('Фамилия И. О.', parent=self)
-        self.__fio_edit = QLineEdit(parent=self)
+        self.__fio_edt = QLineEdit(parent=self)
 
+        phone_lbl = QLabel('Телефон', parent=self)
+        self.__phone_edt = QLineEdit(parent=self)
+
+        email_lbl = QLabel('Email', parent=self)
+        self.__email_edt = QLineEdit(parent=self)
+
+        comment_lbl = QLabel('Примечание', parent=self)
+        self.__comment_edt = QTextEdit(parent=self)
+
+        ok_btn = QPushButton('ок', parent=self)
+        cancel_btn = QPushButton('отмена', parent=self)
