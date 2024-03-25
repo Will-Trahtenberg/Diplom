@@ -22,3 +22,6 @@ class MainWindows(QMainWindow):
     @pyqtSlot()
     def about_qt(self):
         QMessageBox.aboutQt(self, 'Управление для преподавателей')
+
+
+#delete then
