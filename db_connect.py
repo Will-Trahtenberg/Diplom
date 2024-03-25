@@ -3,5 +3,5 @@ db_params = {
     'port':5432,
     'password':'12345678',
     'user':'postgres',
-    'database':'postgres'
+    'database':'учет студентов'
 }
