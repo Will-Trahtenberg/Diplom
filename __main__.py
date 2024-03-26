@@ -1,4 +1,5 @@
 import sys
+import sqlite3 as sl
 from db_connect import *
 import psycopg2
 from PyQt5.QtSql import QSqlTableModel, QSqlQuery, QSqlQueryModel, QSqlDatabase
@@ -9,14 +10,7 @@ app = Application(sys.argv)
 
 
 def connect(self):
-    self.connect = connection = psycopg2.connect(
-        host='localhost',
-        port=5432,
-        database='учет студентов',
-        password='12345678',
-        user='postgres'
-    )
-    self.cur = self.connect.cursor()
+    con = sl.connect('учет студентов.db')
 
 main_windows = MainWindows()
 main_windows.showMaximized()

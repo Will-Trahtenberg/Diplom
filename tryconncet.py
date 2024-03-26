@@ -1,5 +1,8 @@
 import psycopg2
 from psycopg2 import Error
+import sqlite3 as sl
+
+conn = sl.connect('учет студентов')
 
 try:
     # Connect to an existing database
